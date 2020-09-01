@@ -25,7 +25,7 @@ export class InMemoryDataBase implements InMemoryDataBase{
       },
       {
         id: 5,
-        nome: "Freela",
+        name: "Freela",
         description: "Trabalho de frelar"
       }
     ];
