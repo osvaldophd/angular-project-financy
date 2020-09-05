@@ -28,19 +28,19 @@ export class EntryService {
     );
   }
 
-  create(Entry: Entry): Observable<Entry>{
+  create(Entry: Entry): Observable<Entry> {
     return this.http.post(this.apiPath, Entry).pipe(
       catchError(this.handleError),
       map(this.jsonDataEntry)
     );
   }
 
-  update(Entry: Entry): Observable<Entry>{
+  update(Entry: Entry): Observable<Entry> {
     const url = `${this.apiPath}/${Entry.id}`;
 
     return this.http.put(url, Entry).pipe(
       catchError(this.handleError),
-      map(()=>Entry)
+      map(() => Entry)
     );
   }
 
@@ -50,18 +50,21 @@ export class EntryService {
 
     return this.http.delete(url).pipe(
       catchError(this.handleError),
-      map(()=> null)
+      map(() => null)
     );
   }
 
   private jsonDataEntry(jsonData: any): Entry {
 
-    return jsonData as Entry;
+    return Object.assign(new Entry(), jsonData);
   }
 
   private jsonDataEntries(jsonData: any): Entry[] {
     const entries: Entry[] = [];
-    jsonData.forEach(element => entries.push(element as Entry));
+    jsonData.forEach(element => {
+      const entry = Object.assign(new Entry(), element);
+      entries.push(entry);
+    });
 
     return entries;
   }
