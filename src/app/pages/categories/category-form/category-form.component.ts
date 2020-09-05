@@ -1,6 +1,6 @@
 import { CategoryService } from './../shared/category.service';
 import { Component, OnInit, AfterContentChecked } from '@angular/core';
-import { Validator, FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { Validator, FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../shared/category.module';
 import { switchMap } from 'rxjs/operators';
@@ -113,7 +113,7 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
   private buildCategoryForm() {
     this.categoryForm = this.formBuilder.group({
       id: [null],
-      name: [null],
+      name: [null, Validators.required, Validators.minLength(2)],
       description: [null]
     });
   }
