@@ -12,7 +12,7 @@
   </div>
 
   <div class="col-md">
-    <a routerLink="/categories" class="btn btn-light float-right">
+    <a routerLink="/entries" class="btn btn-light float-right">
       << Voltar</a>
   </div>
 </div>
@@ -29,7 +29,7 @@
         <div class="form-group col-md-2">
           <label for="type">Tipo</label>
           <select formControlName="type" class="form-control" id="type">
-            <option *ngFor="let option of typeOption" value="option.value">{{option.text}}</option>
+            <option *ngFor="let option of typeOption" value="{{option.value}}">{{option.text}}</option>
           </select>
 
           <div class="text-danger" *ngIf="entryForm.get('type').invalid && entryForm.get('type').touched">
@@ -98,7 +98,7 @@
          <div class="form-group col-md-3">
           <label for="categoryId">Categoria</label>
           <select formControlName="categoryId" class="form-control" id="categoryId">
-            <option *ngFor="let item of categories" value="item.id">{{item.name}}</option>
+            <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
           </select>
 
           <div class="text-danger" *ngIf="entryForm.get('categoryId').invalid && entryForm.get('categoryId').touched">

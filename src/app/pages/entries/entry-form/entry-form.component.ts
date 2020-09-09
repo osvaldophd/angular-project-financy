@@ -1,6 +1,5 @@
 import { CategoryService } from './../../categories/shared/category.service';
 import { Category } from './../../categories/shared/category.module';
-import { Entry } from './../shared/entry.module';
 import { EntryService } from './../shared/entry.service';
 import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { Validator, FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
