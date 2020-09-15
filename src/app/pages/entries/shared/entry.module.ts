@@ -18,8 +18,11 @@ export class Entry {
     renevue: 'Receita'
   };
 
+  static formJson(jsonData: any): Entry {
+    return Object.assign(new Entry(), jsonData);
+  }
 
-  get paidText(): string{
+  get paidText(): string {
     return this.paid ? 'Pago' : 'Pendente'
   }
 }

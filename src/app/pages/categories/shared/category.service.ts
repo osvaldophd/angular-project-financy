@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { Category } from './category.module';
-import { BaseResouceService } from '../../../shared/services/base-resouce';
+import { BaseResouceService } from '../../../shared/services/base-resouce.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import { BaseResouceService } from '../../../shared/services/base-resouce';
 export class CategoryService extends BaseResouceService<Category>{
 
   constructor(protected injector: Injector) {
-    super("api/categories", injector);
+    super("api/categories", injector, Category.formJson);
   }
 
 
