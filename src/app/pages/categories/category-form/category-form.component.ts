@@ -1,11 +1,11 @@
 import { CategoryService } from './../shared/category.service';
 import { Component, OnInit, AfterContentChecked } from '@angular/core';
-import { Validator, FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../shared/category.module';
 import { switchMap } from 'rxjs/operators';
 import toastr from "toastr";
-import { JsonPipe } from '@angular/common';
+// import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-category-form',
@@ -57,7 +57,7 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
     }
   }
 
-  updateCategory() {
+  public updateCategory() {
     const category: Category = Object.assign(new Category(), this.categoryForm.value);
     this.categoryService.update(category).subscribe(
       category => this.categoryForSucesso(category),
