@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { BaseResouceService } from '../../../shared/services/base-resouce.service';
 import { CategoryService } from './../../categories/shared/category.service';
 import { Entry } from './entry.module';
-import { flatMap, , catchError } from 'rxjs/operators';
+import { flatMap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

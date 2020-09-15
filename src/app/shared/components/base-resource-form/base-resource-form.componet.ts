@@ -1,5 +1,4 @@
-import { BaseResourceModel } from 'src/app/shared/models/base-resource.model';
-import { Component, OnInit, AfterContentChecked, Injector } from '@angular/core';
+import { OnInit, AfterContentChecked, Injector } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
@@ -17,7 +16,6 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
   protected router: Router;
   protected formBuilder: FormBuilder;
 
-
   constructor(
     protected injector: Injector,
     public resource: T,
@@ -27,8 +25,8 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
     this.route = this.injector.get(ActivatedRoute);
     this.router = this.injector.get(Router);
     this.formBuilder = this.injector.get(FormBuilder);
-
   }
+
   ngOnInit() {
     this.setCurrentAction();
     this.buildResourceForm();
@@ -79,7 +77,7 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
     }
   }
 
-  editTitlePage(): string {
+  protected editTitlePage(): string {
     return "Edição";
   }
 
