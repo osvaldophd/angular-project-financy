@@ -29,14 +29,14 @@ export abstract class BaseResouceService<T extends BaseResourceModel> {
     const url = `${this.apiPath}/${id}`;
 
     return this.http.get(url).pipe(
-      map(this.jsonDataToResource),
+      map(this.jsonDataToResource.bind(this)),
       catchError(this.handleError)
     );
   }
 
   create(resource: T): Observable<T> {
     return this.http.post(this.apiPath, resource).pipe(
-      map(this.jsonDataToResource),
+      map(this.jsonDataToResource.bind(this)),
       catchError(this.handleError)
     );
   }
